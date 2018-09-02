@@ -1,0 +1,49 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://tracks/Track.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/onlyObjects_retina.png" type="Texture" id=2]
+
+[node name="SmokeTrail" instance=ExtResource( 1 )]
+
+position = Vector2( 0.349625, -2.27271 )
+
+[node name="Sprite" parent="." index="0"]
+
+modulate = Color( 1, 1, 1, 0.757569 )
+position = Vector2( 13.1118, 2.27273 )
+region_rect = Rect2( 152, 442, 27, 26 )
+_sections_unfolded = [ "Offset", "Region", "Transform", "Visibility", "Z Index" ]
+
+[node name="Lifetime" parent="." index="1"]
+
+wait_time = 0.5
+
+[node name="Sprite2" type="Sprite" parent="." index="2"]
+
+modulate = Color( 1, 1, 1, 0.672745 )
+position = Vector2( 0.524475, 15.5594 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 128, 514, 19, 19 )
+_sections_unfolded = [ "Region", "Visibility" ]
+
+[node name="Sprite3" type="Sprite" parent="." index="3"]
+
+modulate = Color( 1, 1, 1, 0.642431 )
+position = Vector2( -3.49649, -7.51745 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 128, 514, 19, 19 )
+_sections_unfolded = [ "Region", "Visibility" ]
+
+[node name="Sprite4" type="Sprite" parent="." index="4"]
+
+modulate = Color( 1, 1, 1, 0.509098 )
+position = Vector2( -17.8321, 0.52449 )
+texture = ExtResource( 2 )
+flip_h = true
+region_enabled = true
+region_rect = Rect2( 185, 458, 17, 17 )
+_sections_unfolded = [ "Offset", "Region", "Visibility" ]
+
+

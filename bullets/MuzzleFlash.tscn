@@ -1,0 +1,34 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://bullets/MuzzleFlash.gd" type="Script" id=1]
+[ext_resource path="res://assets/onlyObjects_retina.png" type="Texture" id=2]
+
+[node name="MuzzleFlash" type="Area2D"]
+
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 1 )
+lifetime = 0.05
+
+[node name="Sprite" type="Sprite" parent="." index="0"]
+
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 535, 17.875, 52, 16.125 )
+_sections_unfolded = [ "Offset", "Region", "Transform" ]
+
+[node name="Lifetime" type="Timer" parent="." index="1"]
+
+process_mode = 1
+wait_time = 0.5
+one_shot = false
+autostart = false
+
+[connection signal="timeout" from="Lifetime" to="." method="_on_Timer_timeout"]
+
+
