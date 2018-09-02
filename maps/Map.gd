@@ -13,7 +13,7 @@ func set_camera_limits():
 		$Ground/Player/Camera2D.limit_top = map_limits.position.y * map_cellsize.y
 		$Ground/Player/Camera2D.limit_bottom = map_limits.end.y * map_cellsize.y
 
-func _on_Tank_shoot(bullet, smoke, _position, _direction):
+func _on_Tank_shoot(bullet, _position, _direction):
 	var b = bullet.instance()
 	add_child(b)
 	b.start(_position, _direction)

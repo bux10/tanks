@@ -8,20 +8,22 @@ signal move
 export (PackedScene) var Bullet
 export (PackedScene) var MuzzleFlash
 export (PackedScene) var Track
-export (PackedScene) var Smoke
-export (int) var speed
+export (int) var max_speed
 export (float) var rotation_speed
 export (float) var gun_cooldown
-export (int) var health
+export (int) var max_health
 export (float) var drop_rate
 
 var velocity = Vector2()
 var can_shoot = true
 var alive = true
 var can_track = true
+var health
 
 
 func _ready():
+	health = max_health
+	emit_signal('health_changed', health * 100/max_health)
 	$GunTimer.wait_time = gun_cooldown
 	
 func shoot():
@@ -33,9 +35,16 @@ func shoot():
 		add_child(mf)
 		mf.start($Turret/Flash.global_position, dir)
 		#var pos = Vector2($Turret/Muzzle.global_position.x - 200, $Turret/Muzzle.global_position.y - 200)
-		emit_signal('shoot', Bullet, Smoke, $Turret/Muzzle.global_position, dir)
+		emit_signal('shoot', Bullet, $Turret/Muzzle.global_position, dir)
 
-
+func take_damage(damage):
+	health -= damage
+	emit_signal('health_changed', health * 100/max_health)
+	if health <= 0:
+		explode()
+		
+func explode():
+	queue_free()
 
 func control(delta):
 	pass

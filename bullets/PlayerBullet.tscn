@@ -7,7 +7,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 15.7971, 11.7529 )
+extents = Vector2( 12.0723, 7.91319 )
 
 [node name="Bullet" instance=ExtResource( 1 )]
 
@@ -18,6 +18,7 @@ _sections_unfolded = [ "Collision", "Transform" ]
 speed = 750
 damage = 10
 lifetime = 0.8
+SmokeTrail = null
 
 [node name="shell" parent="." index="0"]
 

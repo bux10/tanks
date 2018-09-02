@@ -9,14 +9,16 @@ collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
 Bullet = null
 MuzzleFlash = null
 Track = null
-Smoke = null
-speed = null
+max_speed = null
 rotation_speed = null
 gun_cooldown = null
-health = null
+max_health = null
 drop_rate = null
 
 [node name="Body" type="Sprite" parent="." index="0"]

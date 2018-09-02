@@ -19,10 +19,8 @@ script = ExtResource( 2 )
 _sections_unfolded = [ "Collision" ]
 Bullet = ExtResource( 3 )
 MuzzleFlash = ExtResource( 4 )
-speed = 400
 rotation_speed = 2.0
 gun_cooldown = 0.3
-health = 100
 
 [node name="Body" parent="." index="0"]
 
