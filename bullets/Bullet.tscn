@@ -2,7 +2,7 @@
 
 [ext_resource path="res://bullets/Bullet.gd" type="Script" id=1]
 
-[node name="Bullet" type="Area2D"]
+[node name="Bullet" type="Area2D" index="0"]
 
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -16,6 +16,7 @@ _sections_unfolded = [ "Transform" ]
 speed = null
 damage = null
 lifetime = null
+drop_rate = null
 
 [node name="shell" type="Sprite" parent="." index="0"]
 
