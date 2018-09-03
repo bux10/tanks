@@ -6,9 +6,9 @@ export (int) var speed
 export (int) var damage
 export (float) var lifetime
 export (float) var drop_rate
+export (bool) var can_smoke = true
 export (PackedScene) var SmokeTrail
 
-var can_smoke = true
 var velocity = Vector2()
 
 func start(_position, _direction):
@@ -20,11 +20,11 @@ func start(_position, _direction):
 	
 func _process(delta):
 	position += velocity * delta
-	#if can_smoke:
-		#can_smoke = false
-		#$DropRate.wait_time = drop_rate
-		#$DropRate.start()
-		#emit_signal('rocket_move', SmokeTrail, $Smoke.global_position, Vector2(1, 0).rotated($Smoke.global_rotation))
+	if can_smoke:
+		can_smoke = false
+		$DropRate.wait_time = drop_rate
+		$DropRate.start()
+		emit_signal('rocket_move', SmokeTrail, $Smoke.global_position, Vector2(1, 0).rotated($Smoke.global_rotation))
 	
 func explode():
 	$shell.hide()

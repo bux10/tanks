@@ -61,7 +61,7 @@ collision_mask = 1
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
 __meta__ = {
-"_edit_group_": true
+"_edit_lock_": true
 }
 Bullet = null
 Track = null

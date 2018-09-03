@@ -68,7 +68,7 @@ _sections_unfolded = [ "Collision" ]
 enabled = true
 exclude_parent = true
 cast_to = Vector2( 100, 0 )
-collision_mask = 7
+collision_mask = 3
 
 [node name="LookAhead2" type="RayCast2D" parent="." index="7"]
 
@@ -76,7 +76,7 @@ position = Vector2( 0, -33 )
 enabled = true
 exclude_parent = true
 cast_to = Vector2( 100, 0 )
-collision_mask = 7
+collision_mask = 3
 
 [node name="LookAhead3" type="RayCast2D" parent="." index="8"]
 
@@ -84,7 +84,7 @@ position = Vector2( 0, 33 )
 enabled = true
 exclude_parent = true
 cast_to = Vector2( 100, 0 )
-collision_mask = 7
+collision_mask = 3
 
 [node name="UnitDisplay" parent="." index="9" instance=ExtResource( 5 )]
 

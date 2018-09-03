@@ -20,6 +20,7 @@ speed = null
 damage = null
 lifetime = null
 drop_rate = null
+can_smoke = true
 SmokeTrail = null
 
 [node name="shell" type="Sprite" parent="." index="0"]

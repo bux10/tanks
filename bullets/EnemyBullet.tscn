@@ -6,11 +6,13 @@
 
 [node name="EnemyBullet" instance=ExtResource( 1 )]
 
-collision_mask = 3
+collision_mask = 7
 script = ExtResource( 2 )
 speed = 700
+damage = 3
 lifetime = 1.0
 drop_rate = 0.08
+can_smoke = false
 SmokeTrail = ExtResource( 3 )
 
 [node name="shell" parent="." index="0"]

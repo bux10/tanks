@@ -56,28 +56,6 @@ offset = Vector2( 25, 0 )
 region_rect = Rect2( 584, 58, 56, 32 )
 _sections_unfolded = [ "Offset", "Region", "Transform", "Visibility", "Z Index" ]
 
-[node name="Particles2D" type="Particles2D" parent="Turret" index="2"]
-
-emitting = true
-amount = 100
-lifetime = 100.0
-one_shot = false
-preprocess = 0.0
-speed_scale = 1.0
-explosiveness = 0.0
-randomness = 0.0
-fixed_fps = 0
-fract_delta = true
-visibility_rect = Rect2( -100, -100, 200, 200 )
-local_coords = true
-draw_order = 0
-process_material = null
-texture = null
-normal_map = null
-h_frames = 1
-v_frames = 1
-_sections_unfolded = [ "Drawing", "Process Material", "Textures", "Time" ]
-
 [node name="Camera2D" type="Camera2D" parent="." index="4"]
 
 anchor_mode = 1
