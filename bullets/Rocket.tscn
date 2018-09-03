@@ -12,7 +12,7 @@ extents = Vector2( 12.259, 10 )
 [node name="Bullet" instance=ExtResource( 1 )]
 
 speed = 650
-damage = 15
+damage = 10
 lifetime = 1.0
 drop_rate = 0.08
 SmokeTrail = ExtResource( 2 )

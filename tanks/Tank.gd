@@ -6,7 +6,6 @@ signal shoot
 signal move
 
 export (PackedScene) var Bullet
-export (PackedScene) var MuzzleFlash
 export (PackedScene) var Track
 export (int) var max_speed
 export (float) var rotation_speed
@@ -23,6 +22,7 @@ var health
 
 func _ready():
 	health = max_health
+	$AnimationPlayer.play("init")
 	emit_signal('health_changed', health * 100/max_health)
 	$GunTimer.wait_time = gun_cooldown
 	
@@ -30,11 +30,8 @@ func shoot():
 	if can_shoot:
 		can_shoot = false
 		$GunTimer.start()
+		$AnimationPlayer.play("muzzle_flash")
 		var dir = Vector2(1, 0).rotated($Turret.global_rotation)
-		var mf = MuzzleFlash.instance()
-		add_child(mf)
-		mf.start($Turret/Flash.global_position, dir)
-		#var pos = Vector2($Turret/Muzzle.global_position.x - 200, $Turret/Muzzle.global_position.y - 200)
 		emit_signal('shoot', Bullet, $Turret/Muzzle.global_position, dir)
 
 func take_damage(damage):
@@ -44,7 +41,13 @@ func take_damage(damage):
 		explode()
 		
 func explode():
-	queue_free()
+	$CollisionShape2D.disabled = true
+	alive = false
+	$Turret.hide()
+	$Body.hide()
+	$Explosion.show()
+	$Explosion.play()
+	
 
 func control(delta):
 	pass
@@ -67,3 +70,8 @@ func _on_GunTimer_timeout():
 
 func _on_DropRate_timeout():
 	can_track = true
+
+
+
+func _on_Explosion_animation_finished():
+	queue_free()

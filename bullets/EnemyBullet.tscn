@@ -9,7 +9,6 @@
 collision_mask = 3
 script = ExtResource( 2 )
 speed = 700
-damage = 20
 lifetime = 1.0
 drop_rate = 0.08
 SmokeTrail = ExtResource( 3 )

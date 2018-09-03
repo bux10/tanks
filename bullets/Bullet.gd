@@ -27,7 +27,15 @@ func _process(delta):
 		#emit_signal('rocket_move', SmokeTrail, $Smoke.global_position, Vector2(1, 0).rotated($Smoke.global_rotation))
 	
 func explode():
+	$shell.hide()
+	$tail.hide()
+	velocity = Vector2()
+	$Explosion.show()
+	$Explosion.play("smoke")
+	
+func _on_Explosion_animation_finished():
 	queue_free()
+
 	
 func _on_Bullet_body_entered(body):
 	explode()
@@ -39,3 +47,5 @@ func _on_Lifetime_timeout():
 
 func _on_DropRate_timeout():
 	can_smoke = true
+
+

@@ -1,12 +1,13 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://maps/Map.gd" type="Script" id=1]
 [ext_resource path="res://terrain/terrain_tiles.tres" type="TileSet" id=2]
 [ext_resource path="res://tanks/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://bullets/Rocket.tscn" type="PackedScene" id=4]
-[ext_resource path="res://tracks/Track.tscn" type="PackedScene" id=5]
+[ext_resource path="res://tracks/Tire.tscn" type="PackedScene" id=5]
 [ext_resource path="res://tanks/Enemy.tscn" type="PackedScene" id=6]
-[ext_resource path="res://UI/HUD.tscn" type="PackedScene" id=7]
+[ext_resource path="res://tracks/Track.tscn" type="PackedScene" id=7]
+[ext_resource path="res://UI/HUD.tscn" type="PackedScene" id=8]
 
 [sub_resource type="Curve2D" id=1]
 
@@ -15,16 +16,13 @@ _data = {
 "points": PoolVector2Array( 0, 0, -35.7182, -26.2161, 1468, 575, 17.8591, 36.1465, -44.8461, -33.366, 959, 574, 43.6555, 28.5994, -4.36555, -33.366, 955, 196, 5.95303, -20.6551, -38.8931, -23.8329, 702, 190, 16.6685, 3.97214, -9.52484, 48.8574, 705, 912, 0, 0, -149.223, 3.97214, 566, 959, -17.3462, -39.4793, 50.3754, 26.6366, 435.513, 1095.27, -45.623, 38.2901, 17.8215, 12.367, 1460, 1077, 27.3839, 9.93036, 0, 0, 1468, 575 )
 }
 
-[node name="Map" type="Node2D"]
+[node name="Map" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_group_": true
-}
+_sections_unfolded = [ "Transform", "Z Index" ]
 
 [node name="Ground" type="TileMap" parent="." index="0"]
 
-modulate = Color( 0.65625, 0.65625, 0.65625, 1 )
 position = Vector2( -1, 0 )
 mode = 0
 tile_set = ExtResource( 2 )
@@ -47,18 +45,18 @@ _sections_unfolded = [ "Cell", "Visibility" ]
 
 [node name="Player" parent="Ground" index="0" instance=ExtResource( 3 )]
 
-position = Vector2( 958.009, 734.213 )
+position = Vector2( 371, 320 )
 z_index = 1
-_sections_unfolded = [ "Collision", "Z Index" ]
+_sections_unfolded = [ "Collision", "Transform", "Z Index" ]
 Bullet = ExtResource( 4 )
 Track = ExtResource( 5 )
-max_speed = 400
 rotation_speed = 5.0
-gun_cooldown = 0.5
-max_health = 100
-drop_rate = 0.04
+gun_cooldown = 0.2
+drop_rate = 0.001
 
 [node name="Paths" type="Node2D" parent="." index="1"]
+
+editor/display_folded = true
 
 [node name="Path2D" type="Path2D" parent="Paths" index="0"]
 
@@ -83,14 +81,14 @@ lookahead = 4.0
 
 z_index = 1
 _sections_unfolded = [ "Collision", "Z Index" ]
-Track = ExtResource( 5 )
+Track = ExtResource( 7 )
 max_speed = 200
-gun_cooldown = 2.0
+gun_cooldown = 0.2
 max_health = 100
 drop_rate = 0.08
 turrent_speed = 4.0
 
-[node name="HUD" parent="." index="2" instance=ExtResource( 7 )]
+[node name="HUD" parent="." index="2" instance=ExtResource( 8 )]
 
 [connection signal="health_changed" from="Ground/Player" to="HUD" method="update_healthbar"]
 

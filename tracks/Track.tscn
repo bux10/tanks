@@ -11,7 +11,7 @@ script = ExtResource( 1 )
 
 texture = ExtResource( 2 )
 region_enabled = true
-region_rect = Rect2( 518, 261, 8, 81 )
+region_rect = Rect2( 534, 260, 8, 82 )
 _sections_unfolded = [ "Region", "Visibility", "Z Index" ]
 
 [node name="Lifetime" type="Timer" parent="." index="1"]

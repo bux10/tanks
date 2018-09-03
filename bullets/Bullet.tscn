@@ -1,22 +1,26 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://bullets/Bullet.gd" type="Script" id=1]
+[ext_resource path="res://effects/Explosion.tscn" type="PackedScene" id=2]
 
-[node name="Bullet" type="Area2D" index="0"]
+[node name="Bullet" type="Area2D"]
 
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
 linear_damp = 0.1
 angular_damp = 1.0
+collision_layer = 8
+collision_mask = 7
 audio_bus_override = false
 audio_bus_name = "Master"
 script = ExtResource( 1 )
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Collision", "Transform" ]
 speed = null
 damage = null
 lifetime = null
 drop_rate = null
+SmokeTrail = null
 
 [node name="shell" type="Sprite" parent="." index="0"]
 
@@ -31,8 +35,16 @@ autostart = false
 
 [node name="tail" type="Sprite" parent="." index="3"]
 
+[node name="Explosion" parent="." index="4" instance=ExtResource( 2 )]
+
+visible = false
+scale = Vector2( 0.5, 0.5 )
+_sections_unfolded = [ "Transform" ]
+
 [connection signal="body_entered" from="." to="." method="_on_Bullet_body_entered"]
 
 [connection signal="timeout" from="Lifetime" to="." method="_on_Lifetime_timeout"]
+
+[connection signal="animation_finished" from="Explosion" to="." method="_on_Explosion_animation_finished"]
 
 
